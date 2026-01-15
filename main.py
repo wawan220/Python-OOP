@@ -3,7 +3,7 @@
 #
 #beispiel1=Beispiel()
 #print(type(beispiel1))
-#test
+#
 class Tier:
     spezies="Säugetier"
     def __init__(self, name, rasse, gefleckt=False ):
