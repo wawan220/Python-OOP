@@ -1,0 +1,93 @@
+Warum sollten wir Polymorpie verwenden?
+---------------------------------------
+
+1   Es hilft Programierer, den Code wiederzuverwenden.
+    klassen,die einmal geschrieben, getestet und implementiert 
+    wurden, können bei Bedarf wiederverwendet werden. Spart
+    viel Zeit.
+
+2   einzelne Variablen können zum 
+    speichern mehrerer Datentypen 
+    verwendet werden. Spart viel Zeit.
+
+3   Macht den Code einfacher zu
+    lesen und dadurch einfacher zu
+    debuggen. Spart Zeit.
+
+----------------------------------------------------------------------
+
+Was ist Polymorphie?
+--------------------
+    Definition:
+        Das Wort Polymorphismus besteht aus zwei Wörtern
+        "poly" und "morph" wobei "poly" viel bedeutet und
+        "morph" Form.
+        -> Vielgestaltigkeit, Verschiedengestalttigkeit (Duden)
+
+---------------------------------------------------------------------
+
+verschiedene Formen von Polymorphie
+------------------------------------
+Polymorphie:
+    Ad-hoc-Polymorphie:
+        Überladung
+        Coercion (Typanpassung)
+        Bsp:
+        "Funktionen" sind "überladen", wnn unterschiedliches
+        verhalten mit demselben Namen verbunden sind:
+                          1 + 3
+                       3.14 + 2.0 --> Gleiche typen
+                    "hallo" + "Welt"
+
+        "Coercion" ist eine Art implizierte "Typumwandlung", um zum
+        beispiel Argumente einer Funktion in die von der Funktion
+        erwarteten Typen umzuwandeln
+                        3.14 + 2  --> typ wird automatisch umgewandelt
+                           3 + 1.11
+
+    Universelle Polymorphie:
+        Parametrische Polymorphie
+            Python hat schon eingene eingebaute (build-in) Funktionen die 
+            polimorphisch sind. Sie kennen zum Beispiel schon die Funktion
+                    len():
+                # len() wird zum einen für einen String Verwendet
+                            print("len("polymorphie"))
+                            Ausgabe: 
+                            11
+                # len() wird zum anderen auch für eine Liste verwendet
+                            print(len([1,2,3]))
+                            Ausgabe: 
+                            3
+
+            Eine einfache Funktion um Polymorphie zu zeigen:
+                def add(x,y,z=0):
+                    return x + y + z
+                #ausführender Code
+                print(add(2,3))  ==> 5
+                print(add(2,3,4)) ==> 9
+
+        Inklusions-/Vererbungspolymorphie
+            wird oft mit Tieren erklärt.
+            Alle haben eine spreche()-Methode in ihrer Schnittstelle, 
+            aber führen sie anders aus.
+            bsp:
+            Mensch ==> sprechen
+            Ente ==> Quack
+            Katze ==> Miau
+            ...
+
+            bsp. in Python:
+            class Vogel:
+                def initialesieren(self):
+                    print("Es gibt viele Vogelarten.")
+                
+                def fliegen(self):
+                    print("Fast alle Vögel können fliegen.")
+            
+            class Spatz(Vogel):
+                def fleigen(self):
+                    print("ein Spatz kann fliegen")
+
+            class Strauss(Vogel):
+                def fliegen(self):
+                print("ein Strauss kann nicht Fliegen")

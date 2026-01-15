@@ -1,0 +1,73 @@
+Aufgabe1:
+
+Fülle die Methoden der Kalsse Linie aus, 
+um Koordinaten als Paar von Tuplen zu akzeptieren
+und die Steigung so wie Distanz zu berechnen.
+
+*******************************
+
+class Linie:
+    """ Klasse Linie: Initialisierung mit zwie Koordinaten und
+        methoden zur berechnung von Distanz und Steigung.
+    """
+
+    def __init__(self, koor1, koor2):
+        """Initialisierung mit den zwei Koordinaten koor1 und kor2."""
+        
+        pass
+
+    def distanz(self):
+        """methode zur Berechnung der Distanz der beiden koordinaten."""
+        pass
+
+    def steigung(self):
+        """Methode zur Berechnung der steigerung zwischen beiden koordinaten""""
+        pass
+
+
+
+koordinate1 =(3,2)
+koordinate2 = (8,10)
+
+linie = Linie(koordinate1, koordinate2)
+
+linie.distanz()
+    # Ausgabe: 9.34339.... 
+
+linie.steigung()
+    # Ausgabe: 1.6
+
+
+**************************
+
+
+
+
+Aufgabe 2:
+Implementiere die Klasse Zylinder aus.
+
+***********************
+class Zylinder:
+    """Klasse Zylinder: initialisierung 
+    mit hoehe und radius sowie Methoden 
+    zur berechnung von Volumen und Oberfläche.
+    """
+
+    def __init__(self, hoehe=1, radius=1):
+        """Initialisierung des zylinders mit 
+        hohe und radius
+        """
+        pass
+
+    def volumen(self):
+        """methode zur berechnung des Volumens."""
+        pass
+
+    def oberflaeche(self):
+        """methode zur berechnung der Oberflaeche"""
+        pass
+
+
+zylinder1= Zylinder(2,3)
+zylinder.volumen()      # ausgabe ---> 56.52
+zylinder.oberflaeche()  # ausgabe ---> 94.2

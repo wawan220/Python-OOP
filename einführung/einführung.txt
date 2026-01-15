@@ -1,0 +1,54 @@
+Objektorientierte Programierung (OOP)
+--------------------------------------
+
+-   Mit objektorientierten Programierung (OOP) können
+    eigene Objekte mit Methoden und Attributen erstellt werden.
+
+-   Nach der Definition einer Zeichenfolge (string), einer Liste (list),
+    eines Wörterbuchs (dictionry) oder anderer Objekte, kann die 
+    Methode aufgerufen werden, indem du den .methode_name()
+    Syntax verwendest.
+
+-   Diese Methoden fungieren als Funktion, die Informationen
+    über das Objekt, sowie das Objekt selbst verwenden, um
+    Ergebnisse zurückzugeben oder das aktuelle Objekt zu ändern.
+
+-   Dies umfasst deispielsweise das Anhängen an eine Liste oder das
+    zählen der Vorkommen eines Elements in einem Tupel.
+
+-   mit OOP kanst du deine eigenen Objekte erstellen.
+
+-   das Format kann erstmal verwierend wirken, und die
+    Nützlichkeit ist möglicherweise zunähst unklar.
+    -> üben, üben, üben!!!
+
+-   im allgemeinen können wir mit OOP Code erstellen, der
+    wiederholbar und organisiert ist.
+
+-   Bei vielen größeren Skripten mit Python-Code reichen Funktionen
+    für Organisation und Wiederhollbarkeit nicht aus.
+
+-   Häufig wiederholte Aufgaben und Objekte können mit OOP
+    definiert werden, um benutzerfreundlichen Code zu erstellen.
+
+---------------------------------------------------------------------------
+Die Syntax
+-----------
+
+class NameDerKlasse ():    ===> Objekte werden durch Klassen Definiert -> "class" undder name(in Kammelcase)
+
+    def __init__(self, param1, param2):     
+    ====> initialesierung in einer klasse mit def (wie eine funktion), __init__ und denn übergebennen parameter
+
+        self.param1=param1
+        self.param2=param2
+        ===> mit dem stichwort self werden die parameter zu dem objekt zugewiesen
+
+    def eine_methode(self):   
+    ====> in der methode kann man eine aktion Ausführen (bsp.: Auto - fahren, Katze - miauen...)
+    - self ist das Objekt ansich der wert wird übergebn damit die methode damit arbeiten kann.
+
+        #führe die aktion aus
+        print(self.param1)
+
+
