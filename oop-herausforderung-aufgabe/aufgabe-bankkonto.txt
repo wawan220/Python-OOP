@@ -1,0 +1,16 @@
+Objektorientierte Programierung
+-----------------------------------
+Herausforderung Aufgabe
+------------------------
+
+in dieser herausforderung sollst du eine Klasse "Bankkonto" mit den Attributen
+    -   inhaber
+    -   kontostand
+und mit folgenden Methoden entwerfen:
+    -   einzahlen
+    -   abbuchen
+dabei dürfen die abbuchungen die Einzahlungen nicht überschreiten.
+
+Erstelle die Klasse, mache ein paar Einzahlungen und  abbuchungen und stelle sicher, 
+dass das Konto nicht überzogen werden kann.
+

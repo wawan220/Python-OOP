@@ -1,0 +1,127 @@
+AUFGABENSTELLUNG
+Objektorientierte Programmierung mit Python
+Thema: Vererbung, Kapselung, Getter und Setter, Klassendiagramme
+
+LERNZIELE
+Nach dieser Aufgabe können Sie:
+- Klassen und Vererbung modellieren
+- private Attribute verwenden
+- Getter- und Setter-Methoden implementieren
+- Validierungen über Setter umsetzen
+- ein UML-Klassendiagramm in Python-Code überführen
+- Methoden überschreiben (Polymorphie)
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+TEIL 1 – KLASSENDIAGRAMM ERSTELLEN
+--------------------------------------------------
+
+Modellieren Sie ZUERST ein UML-Klassendiagramm.
+Schreiben Sie noch KEINEN Python-Code.
+
+Szenario:
+Ein Unternehmen verwaltet verschiedene Fahrzeuge.
+Es gibt allgemeine Fahrzeuge, Autos und Elektroautos.
+
+--------------------------------------------------
+KLASSE: Fahrzeug
+--------------------------------------------------
+
+Private Attribute:
+- hersteller : str
+- modell : str
+- preis : float
+
+Öffentliche Methoden:
+- get_hersteller() :
+- get_modell() :
+- get_preis() : 
+- set_preis(neuer_preis: float) :
+- berechne_gesamtpreis() :
+- get_info() :
+
+Regeln:
+- Der Preis muss größer als 0 sein
+- Die Prüfung erfolgt im Setter
+
+--------------------------------------------------
+KLASSE: Auto (erbt von Fahrzeug)
+--------------------------------------------------
+
+Zusätzliches privates Attribut:
+- anzahl_tueren : int
+
+Öffentliche Methoden:
+- get_anzahl_tueren() : int
+- set_anzahl_tueren(neue_anz_tueren: int) :
+- berechne_gesamtpreis() : float
+- get_info() : str
+
+Regeln:
+- Erlaubte Türanzahl: 1 bis 5
+- Gesamtpreis = preis + 10 Prozent
+
+--------------------------------------------------
+KLASSE: Elektroauto (erbt von Auto)
+--------------------------------------------------
+
+Zusätzliches privates Attribut:
+- batterie_kap : int
+
+Öffentliche Methoden:
+- get_batterie_kap() : int
+- set_batterie_kap(neue_bat_kap: int) : void
+- berechne_gesamtpreis() : float
+- get_info() : str
+
+Regeln:
+- Batteriekapazität muss größer als 0 sein
+- Gesamtpreis = preis + 10 Prozent minus 2000 Euro
+
+--------------------------------------------------
+VERERBUNG
+--------------------------------------------------
+
+Auto erbt von Fahrzeug
+Elektroauto erbt von Auto
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+TEIL 2 – IMPLEMENTIERUNG IN PYTHON
+--------------------------------------------------
+
+Setzen Sie Ihr Klassendiagramm nun in Python-Code um.
+
+Vorgaben:
+- Verwenden Sie private Attribute (__)
+- Getter- und Setter-Namen müssen exakt wie im Diagramm heißen
+- Setter müssen die Regeln prüfen
+- Verwenden Sie super() für Konstruktoren und Methoden
+
+--------------------------------------------------
+TEIL 3 – TESTPROGRAMM
+--------------------------------------------------
+
+Erstellen Sie ein Testprogramm, das:
+1. Ein Fahrzeug, ein Auto und ein Elektroauto erzeugt
+2. Die Methode get_info() aufruft
+3. Den Preis eines Autos ändert
+4. Einen ungültigen Preis setzt
+5. Zeigt, dass der Preis nicht geändert wird
+
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+ZUSATZFRAGEN (OPTIONAL)
+--------------------------------------------------
+
+- Warum ist das Attribut preis privat?
+- Warum werden Setter benötigt?
+- Was bedeutet Vererbung?
+- Was versteht man unter Polymorphie?
