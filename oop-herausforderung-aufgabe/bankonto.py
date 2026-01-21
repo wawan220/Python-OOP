@@ -7,7 +7,7 @@ class Bankkonto:
 
     def einzahlen(self,betrag:float):
         self.kontostand+=betrag
-        print(f"es wurde eingezahlt: >{betrag:.2f}€")
+        print(f"es wurde eingezahlt: >{betrag:.2f}€")   #  :.2f --> Float 2 nachkommastellen
         print(f"aktueller kontostand: >{self.kontostand:.2f}€")
 
     def abbuchungen(self,betrag:float):
@@ -21,7 +21,7 @@ class Bankkonto:
             print(f"aktueller Kontostand: >{self.kontostand:.2f}€")
     
     def __str__(self):
-        return f"der aktuelle kontostand beträgt:\n > {self.kontostand:.2f}€"
+        return f"der Kontoinhaber:\n > {self.inhaber}\naktuelle kontostand:\n > {self.kontostand:.2f}€"
 
 
 
