@@ -1,6 +1,7 @@
 
 
 class Fahrzeug:
+    #---------- ATTRIBUTE --------------
     def __init__(self, hersteller:str, modell:str,preis:float):
         self.__hersteller=hersteller
         self.__modell=modell
@@ -35,7 +36,6 @@ class Fahrzeug:
             f"Modell: {self.__modell}\n"
             f"Preis: {self.__preis:.2f}€"
         )
-
 
 
 class Auto(Fahrzeug):
@@ -93,7 +93,6 @@ class Elektroauto(Auto):
             super().get_info()
             + f"\nBatteriekap: {self.__batterie_kap} kwh"
         )
-
 
 
 
