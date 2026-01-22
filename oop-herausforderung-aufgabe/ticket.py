@@ -33,7 +33,7 @@ class Ticket:
             f"Typ: Ticket \n"
             f"ID: {self.__ticket_id} \n"
             f"Beschreibung: {self.__beschreibung} \n"
-            f"stautss: {self.__status}"   
+            f"Stauts: {self.__status}"   
         )
 
 
