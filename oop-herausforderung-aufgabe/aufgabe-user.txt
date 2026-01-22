@@ -1,0 +1,116 @@
+AUFGABENSTELLUNG
+Objektorientierte Programmierung mit Python
+Thema: Vererbung, Kapselung, Getter & Setter, Klassendiagramme
+
+LERNZIELE
+Nach dieser Aufgabe können Sie:
+- UML-Klassendiagramme erstellen
+- Klassen mit Vererbung modellieren
+- private Attribute verwenden
+- Getter- und Setter-Methoden implementieren
+- Validierungen über Setter erzwingen
+- Methoden überschreiben (Polymorphie)
+- ein vollständiges Testprogramm schreiben
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+TEIL 1 – KLASSENDIAGRAMM ERSTELLEN
+--------------------------------------------------
+
+Erstellen Sie ZUERST ein UML-Klassendiagramm.
+Schreiben Sie noch KEINEN Python-Code.
+
+Szenario:
+Ein Unternehmen verwaltet Benutzerkonten für ein IT-System.
+Es gibt normale Benutzer, Administratoren und Gastbenutzer.
+
+--------------------------------------------------
+KLASSE: Benutzer
+--------------------------------------------------
+
+Private Attribute:
+- benutzername : str
+- passwort : str
+
+Öffentliche Methoden:
+- get_benutzername()
+- set_passwort(neues_passwort: str)
+- pruefe_login(passwort: str) : bool
+- get_info()
+
+Regeln:
+- Passwort muss mindestens 6 Zeichen lang sein
+- Passwort darf nicht leer sein
+
+--------------------------------------------------
+KLASSE: Administrator (erbt von Benutzer)
+--------------------------------------------------
+
+Zusätzliches privates Attribut:
+- rechte_level : int
+
+Öffentliche Methoden:
+- get_rechte_level()
+- set_rechte_level(neues_level: int)
+- get_info()
+
+Regeln:
+- rechte_level muss zwischen 1 und 5 liegen
+- Administratoren haben immer Zugriff
+
+--------------------------------------------------
+KLASSE: Gastbenutzer (erbt von Benutzer)
+--------------------------------------------------
+
+Zusätzliches privates Attribut:
+- ablauf_tage : int
+
+Öffentliche Methoden:
+- get_ablauf_tage()
+- set_ablauf_tage(tage: int)
+- pruefe_login(passwort: str)
+- get_info()
+
+Regeln:
+- ablauf_tage muss größer als 0 sein
+- Login nur möglich, wenn ablauf_tage > 0
+- pruefe_login() muss überschrieben werden
+
+--------------------------------------------------
+VERERBUNG
+--------------------------------------------------
+
+Administrator erbt von Benutzer
+Gastbenutzer erbt von Benutzer
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+TEIL 2 – IMPLEMENTIERUNG IN PYTHON
+--------------------------------------------------
+
+Setzen Sie Ihr Klassendiagramm nun in Python-Code um.
+
+Vorgaben:
+- Alle Attribute müssen privat sein (__)
+- Getter- und Setter-Namen müssen exakt wie im Diagramm heißen
+- Setter müssen die Regeln prüfen
+- Verwenden Sie super() bei Vererbung
+- Überschriebene Methoden müssen gleich heißen
+
+--------------------------------------------------
+TEIL 3 – TESTPROGRAMM
+--------------------------------------------------
+
+Erstellen Sie ein Testprogramm, das:
+1. Einen Benutzer, einen Administrator und einen Gastbenutzer erzeugt
+2. Gültige und ungültige Passwörter testet
+3. Rechte-Level setzt und prüft
+4. Login-Versuche simuliert
+5. get_info() für alle Objekte ausgibt
+
+#############################################################
+#############################################################

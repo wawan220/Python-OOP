@@ -1,0 +1,121 @@
+AUFGABENSTELLUNG
+Objektorientierte Programmierung mit Python (OOP)
+Thema: Vererbung, Kapselung, Getter & Setter, Klassendiagramme
+
+LERNZIELE
+Nach dieser Aufgabe können Sie:
+- UML-Klassendiagramme erstellen
+- Klassen mit Vererbung modellieren
+- private Attribute einsetzen
+- Getter- und Setter-Methoden implementieren
+- fachliche Regeln über Setter durchsetzen
+- Methoden überschreiben (Polymorphie)
+- ein Testprogramm schreiben
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+TEIL 1 – KLASSENDIAGRAMM ERSTELLEN
+--------------------------------------------------
+
+Erstellen Sie ZUERST ein UML-Klassendiagramm.
+Schreiben Sie noch KEINEN Python-Code.
+
+Szenario:
+Ein Unternehmen verwaltet Tickets für einen IT-Support.
+Es gibt normale Tickets, Prioritäts-Tickets und Wartungs-Tickets.
+
+--------------------------------------------------
+KLASSE: Ticket
+--------------------------------------------------
+
+Private Attribute:
+- ticket_id : int
+- beschreibung : str
+- status : str
+
+Öffentliche Methoden:
+- get_ticket_id()
+- get_beschreibung()
+- get_status()
+- set_status(neuer_status: str)
+- get_info()
+
+Regeln:
+- Erlaubte Statuswerte:
+  offen, in_bearbeitung, geschlossen
+- Ungültige Statuswerte dürfen nicht gesetzt werden
+
+--------------------------------------------------
+KLASSE: PrioritaetsTicket (erbt von Ticket)
+--------------------------------------------------
+
+Zusätzliches privates Attribut:
+- prioritaet : int
+
+Öffentliche Methoden:
+- get_prioritaet()
+- set_prioritaet(neue_prioritaet: int)
+- get_info()
+
+Regeln:
+- prioritaet muss zwischen 1 und 5 liegen
+- Höhere Priorität bedeutet dringendere Bearbeitung
+
+--------------------------------------------------
+KLASSE: WartungsTicket (erbt von Ticket)
+--------------------------------------------------
+
+Zusätzliches privates Attribut:
+- wartungs_dauer : int  (in Stunden)
+
+Öffentliche Methoden:
+- get_wartungs_dauer()
+- set_wartungs_dauer(stunden: int)
+- set_status(neuer_status: str)
+- get_info()
+
+Regeln:
+- wartungs_dauer muss größer als 0 sein
+- Ein Wartungs-Ticket darf nicht direkt auf „geschlossen“ gesetzt werden
+- Vor „geschlossen“ muss mindestens einmal „in_bearbeitung“ gesetzt worden sein
+- Die Methode set_status() muss überschrieben werden
+
+--------------------------------------------------
+VERERBUNG
+--------------------------------------------------
+
+PrioritaetsTicket erbt von Ticket
+WartungsTicket erbt von Ticket
+
+#############################################################
+#############################################################
+
+--------------------------------------------------
+TEIL 2 – IMPLEMENTIERUNG IN PYTHON
+--------------------------------------------------
+
+Setzen Sie Ihr Klassendiagramm nun in Python-Code um.
+
+Vorgaben:
+- Alle Attribute müssen privat sein (__)
+- Getter- und Setter-Namen müssen exakt wie im Diagramm heißen
+- Setter müssen alle Regeln prüfen
+- Verwenden Sie super() bei Vererbung
+- Überschriebene Methoden müssen gleich heißen
+- Verwenden Sie print("!!!Fehler!!!") für Fehlermeldungen
+
+--------------------------------------------------
+TEIL 3 – TESTPROGRAMM
+--------------------------------------------------
+
+Erstellen Sie ein Testprogramm, das:
+1. Ein Ticket, ein PrioritaetsTicket und ein WartungsTicket erzeugt
+2. Statusänderungen testet (gültig und ungültig)
+3. Priorität und Wartungsdauer setzt
+4. zeigt, dass alle Regeln eingehalten werden
+5. get_info() für alle Objekte ausgibt
+
+#############################################################
+#############################################################
