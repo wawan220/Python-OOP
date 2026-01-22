@@ -29,7 +29,12 @@ class Ticket:
             print("Ungültige Status! erlaubt: \n > offen, in_bearbeitung, geschlossen")
 
     def get_info(self):
-        pass
+        return (
+            f"Typ: Ticket \n"
+            f"ID: {self.__ticket_id} \n"
+            f"Beschreibung: {self.__beschreibung} \n"
+            f"stautss: {self.__status}"   
+        )
 
 
 class PrioritaetsTicket(Ticket):
