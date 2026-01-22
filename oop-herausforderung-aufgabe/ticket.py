@@ -56,7 +56,13 @@ class PrioritaetsTicket(Ticket):
             print("Ungültige Priorität! erlaubt: \n > 1,2,3,4,5")
 
     def get_info(self):
-        pass
+        return (
+            f"Typ: PrioritaetsTicket \n"
+            f"ID: {self.get_ticket_id()} \n"
+            f"Beschreibung: {self.get_beschreibung()} \n"
+            f"Status: {self.get_status()}" 
+            f"Priorität: {self.__prioritaet}"  
+        )
 
 
 class WartungsTicket(Ticket):
