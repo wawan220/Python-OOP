@@ -38,15 +38,22 @@ class Ticket:
 
 
 class PrioritaetsTicket(Ticket):
-    def __init__(self, ticket_id, beschreibung, status, prioritaet:int):
+    def __init__(self, ticket_id, beschreibung, status, prioritaet:int=3):
         super().__init__(ticket_id, beschreibung, status)
-        self.__prioritaet=prioritaet
+        self.__prioritaet=3
+        self.set_prioritaet(prioritaet)
     
     def get_prioritaet(self):
         return self.__prioritaet
 
     def set_prioritaet(self,neue_prioritaet:int):
-        pass
+        erlaubter_prio = (1,2,3,4,5)
+        if neue_prioritaet in erlaubter_prio:
+            self.__prioritaet=neue_prioritaet
+            print(f"Priorität geändert auf: {neue_prioritaet}")
+        else:
+            print("!!!FEHLER!!")
+            print("Ungültige Priorität! erlaubt: \n > 1,2,3,4,5")
 
     def get_info(self):
         pass
