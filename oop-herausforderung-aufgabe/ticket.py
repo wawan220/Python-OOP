@@ -66,18 +66,45 @@ class PrioritaetsTicket(Ticket):
 
 
 class WartungsTicket(Ticket):
-    def __init__(self, ticket_id, beschreibung, status, wartungs_dauer:int):
+    def __init__(self, ticket_id, beschreibung, status, wartungs_dauer:int=1):
         super().__init__(ticket_id, beschreibung, status)
-        self.__wartungs_dauer=wartungs_dauer
+        self.__wartungs_dauer=1
+        self.__in_bearbeitung=False   #internes Atribut / als Merkhilfe
+        self.set_wartungs_dauer(wartungs_dauer)
 
     def get_wartungs_dauer(self):
         return self.__wartungs_dauer
 
     def set_wartungs_dauer(self, stunden:int):
-        pass
+        if stunden>0:
+            self.__wartungs_dauer = stunden
+            print(f"Wartungsdauer geänder auf {stunden} Stunden")
+        else:
+            print("!!!FEHLER!!")
+            print("Ungültige Wartungsdauer! muss grösser als 0 sein:")
     
     def set_status(self,neuer_status:str):      #-----> Status Überschreiben
-        pass
+        erlaubter_status = ("offen","in_bearbeitung","geschlossen")
+        #Prüfung nach inhalt
+        if neuer_status not in erlaubter_status:
+            print("!!!FEHLER!!")
+            print("Ungültige Status! erlaubt: \n > offen, in_bearbeitung, geschlossen")
+            return
+        
+        #Regel1: nicht direkt auf geschlossen setzen --> ersmal in_bearbeitung
+        if neuer_status =="geschlossen" and not self.__in_bearbeitung:
+            print("!!!FEHLER!!")
+            print("Wartungsticket darf nicht direkt geschlossen werden")
+            print("Wartungsticket muss erst in_bearbeitung gesetzt werden")
+            return
+        
+        if neuer_status=="in_bearbeitung":
+            self.__in_bearbeitung=True
+            print(f"Status geänder in: > {neuer_status}")
+
+        #Marker setzen in Bassisklasse / Elternklasse 
+        super().set_status(neuer_status)
+        print(f"Status geänder in: > {neuer_status}")
 
     def get_info(self):
         pass
