@@ -107,4 +107,10 @@ class WartungsTicket(Ticket):
         print(f"Status geänder in: > {neuer_status}")
 
     def get_info(self):
-        pass
+        return (
+            f"Typ: WartungsTicket \n"
+            f"ID: {self.get_ticket_id()} \n"
+            f"Beschreibung: {self.get_beschreibung()} \n"
+            f"Status: {self.get_status()}" 
+            f"Wartungsdauer: {self.__wartungs_dauer} Stunden"  
+        )
