@@ -3,23 +3,30 @@
 
 class Ticket:
     #---------------- ATRIBUTE ---------------------
-    def __init__(self, ticket_id:int, beschreibung:str, status:str):
+    def __init__(self, ticket_id:int, beschreibung:str, status:str="offen"):
         self.__ticket_id=ticket_id
         self.__beschreibung=beschreibung
-        self.__status=status
+        self.__status="offen"
+        self.set_status(status)
 
     #---------------- METHODEN ---------------------
     def get_ticket_id(self):
-        pass
+        return self.__ticket_id
     
     def get_beschreibung(self):
-        pass
+        return self.__beschreibung
 
     def get_status(self):
-        pass
+        return self.__status
 
     def set_status(self,neuer_status:str):
-        self.__status = neuer_status
+        erlaubter_status = ("offen","in_bearbeitung","geschlossen")
+        if neuer_status in erlaubter_status:
+            self.__status=neuer_status
+            print(f"Status geändert auf: {neuer_status}")
+        else:
+            print("!!!FEHLER!!")
+            print("Ungültige Status! erlaubt: \n > offen, in_bearbeitung, geschlossen")
 
     def get_info(self):
         pass
@@ -31,7 +38,7 @@ class PrioritaetsTicket(Ticket):
         self.__prioritaet=prioritaet
     
     def get_prioritaet(self):
-        pass
+        return self.__prioritaet
 
     def set_prioritaet(self,neue_prioritaet:int):
         pass
@@ -46,7 +53,7 @@ class WartungsTicket(Ticket):
         self.__wartungs_dauer=wartungs_dauer
 
     def get_wartungs_dauer(self):
-        pass
+        return self.__wartungs_dauer
 
     def set_wartungs_dauer(self, stunden:int):
         pass
