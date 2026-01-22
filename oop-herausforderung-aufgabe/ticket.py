@@ -104,7 +104,7 @@ class WartungsTicket(Ticket):
 
         #Marker setzen in Bassisklasse / Elternklasse 
         super().set_status(neuer_status)
-        print(f"Status geänder in: > {neuer_status}")
+        print(f"Status geänder auf: {neuer_status}")
 
     def get_info(self):
         return (
@@ -114,3 +114,50 @@ class WartungsTicket(Ticket):
             f"Status: {self.get_status()}" 
             f"Wartungsdauer: {self.__wartungs_dauer} Stunden"  
         )
+
+
+
+
+
+
+
+
+# ---------------- TESTPROGRAMM ----------------
+if __name__ == "__main__":
+    print("=== OBJEKTE ERZEUGEN ===")
+    t1 = Ticket(1, "Drucker druckt nicht", "offen")
+    p1 = PrioritaetsTicket(2, "Server down", "offen", 5)
+    w1 = WartungsTicket(3, "Patchday Wartung", "offen", 4)
+
+    print("\n=== INFOS ===")
+    print(t1.get_info())
+    print("------------------------")
+    print(p1.get_info())
+    print("------------------------")
+    print(w1.get_info())
+
+    print("\n=== STATUS-TESTS (gültig/ungültig) ===")
+    t1.set_status("in_bearbeitung")
+    t1.set_status("geschlossen")
+    t1.set_status("irgendwas")  # ungültig
+
+    print("\n=== PRIORITÄT-TESTS ===")
+    p1.set_prioritaet(2)
+    p1.set_prioritaet(9)  # ungültig
+
+    print("\n=== WARTUNGSTICKET-REGEL TEST ===")
+    # darf NICHT direkt geschlossen werden
+    w1.set_status("geschlossen")  # soll Fehler bringen
+    w1.set_status("in_bearbeitung")  # ok
+    w1.set_status("geschlossen")  # jetzt ok
+
+    print("\n=== WARTUNGSDAUER-TESTS ===")
+    w1.set_wartungs_dauer(0)  # ungültig
+    w1.set_wartungs_dauer(6)  # gültig
+
+    print("\n=== FINAL INFOS ===")
+    print(t1.get_info())
+    print("------------------------")
+    print(p1.get_info())
+    print("------------------------")
+    print(w1.get_info())
