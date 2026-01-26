@@ -65,13 +65,19 @@ class Administrator(Benutzer):
 class Gastbenutzer(Benutzer):
     def __init__(self, benutzername:str, passwort:str, ablauf_tage:int):
         super().__init__(benutzername, passwort)
-        self.__ablauf_tage=ablauf_tage
+        self.__ablauf_tage=1    #wird durch den setter gesetzt (Validierung)
+        self.set_ablauf_tage(ablauf_tage)
 
     def get_ablauf_tage(self):
-        pass
+        return self.__ablauf_tage
 
     def set_ablauf_tage(self,tage:int):
-        pass
+        if tage > 0:
+            self.__ablauf_tage=tage
+            print("Ablauf-Tage wurden gesetzt/geändert")
+        else:
+            print("!!!Fehler!!!")
+            print("Ablauf-Tage müssen größer 0 sein!")
 
     def pruefe_login(self,passwort:str):
         pass
