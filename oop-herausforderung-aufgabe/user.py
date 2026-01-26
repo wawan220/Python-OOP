@@ -24,11 +24,17 @@ class Benutzer:
         self.__passwort=neues_passwort
         print("Passwort wurde gesetzt/geändert!")
 
-    def pruefe_login(self,passwort:str):
-        pass
+    def pruefe_login(self, passwort:str):
+        if passwort == self.__passwort:
+            return True
+        return False
 
     def get_info(self):
-        pass
+        # Passwort aus sicherheitsgründen nicht anzeigen
+        return(
+            f"Typ: Benutzer\n"
+            f"Benutzername: {self.__benutzername}"
+        )
 
 
 class Administrator(Benutzer):
