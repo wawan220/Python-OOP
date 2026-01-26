@@ -55,7 +55,11 @@ class Administrator(Benutzer):
             print("Rechte-Level muss zwischen 1 und 5 liegen!")
 
     def get_info(self):
-        pass
+        return(
+            f"Typ: Administrator\n"
+            f"Benutzername: {self.get_benutzername()}"
+            f"Rechte-Level: {self.__rechte_level}"
+        )
 
 
 class Gastbenutzer(Benutzer):
