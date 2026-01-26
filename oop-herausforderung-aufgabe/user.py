@@ -7,10 +7,21 @@ class Benutzer:
         self.__passwort=passwort
 
     def get_benutzername(self):
-        pass
+        return self.__benutzername
 
-    def set_passwort(self,neuespasswort:str):
-        pass
+    def set_passwort(self,neues_passwort:str):
+        if not isinstance(neues_passwort, str) or neues_passwort.strip()=="": #----> prüfe nach typ und inhalt darf nicht leer sein
+            print("!!!FEHLER!!!")
+            print("Passwort darf nicht leer sein!")
+            return
+        
+        if len(neues_passwort) < 6:
+            print("!!!Fehler!!!")
+            print("Passwort muss mindestens 6 Zeichen lang sein!")
+            return
+        
+        self.__passwort=neues_passwort
+        print("Passwort wurde gesetzt/geändert!")
 
     def pruefe_login(self,passwort:str):
         pass
