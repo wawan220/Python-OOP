@@ -57,7 +57,7 @@ class Administrator(Benutzer):
     def get_info(self):
         return(
             f"Typ: Administrator\n"
-            f"Benutzername: {self.get_benutzername()}"
+            f"Benutzername: {self.get_benutzername()}\n"
             f"Rechte-Level: {self.__rechte_level}"
         )
 
@@ -89,6 +89,38 @@ class Gastbenutzer(Benutzer):
     def get_info(self):
         return(
             f"Typ: Gast-Benutzer\n"
-            f"Benutzername: {self.get_benutzername()}"
+            f"Benutzername: {self.get_benutzername()}\n"
             f"Ablauf-Tage: {self.__ablauf_tage}"
         )
+
+
+#=========TEST===============
+
+user1=Benutzer(benutzername="max", passwort="geheim123")
+user1.set_passwort(neues_passwort="streng-geheim123")
+user1.set_passwort(neues_passwort="12345")
+user1.set_passwort(neues_passwort="")
+print(user1.get_info())
+
+admin1=Administrator(benutzername="admin",passwort="admin123",rechte_level=3)
+admin1.set_rechte_level(10)
+admin1.set_rechte_level(3)
+
+print(admin1.get_info())
+
+gast1=Gastbenutzer(benutzername="guest",passwort="guest123",ablauf_tage=3)
+print(gast1.get_info())
+
+
+print("user login richtig: ",user1.pruefe_login("streng-geheim123"))
+print("user login falsch: ",user1.pruefe_login("streng-geheim12"))
+
+
+print("gast richtig: ", gast1.pruefe_login("guest123"))
+print("gast Falsch: ", gast1.pruefe_login("guest12"))
+
+gast1.set_ablauf_tage(1)
+print("gast login (1tag): ", gast1.pruefe_login("guest123"))
+
+gast1._Gastbenutzer__ablauf_tage =0
+print("gast login (0tag): ", gast1.pruefe_login("guest123"))
