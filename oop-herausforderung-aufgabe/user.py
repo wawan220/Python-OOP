@@ -32,3 +32,21 @@ class Administrator(Benutzer):
 
     def get_info(self):
         pass
+
+
+class Gastbenutzer(Benutzer):
+    def __init__(self, benutzername:str, passwort:str, ablauf_tage:int):
+        super().__init__(benutzername, passwort)
+        self.__ablauf_tage=ablauf_tage
+
+    def get_ablauf_tage(self):
+        pass
+
+    def set_ablauf_tage(self,tage:int):
+        pass
+
+    def pruefe_login(self,passwort:str):
+        pass
+
+    def get_info(self):
+        pass
