@@ -87,4 +87,8 @@ class Gastbenutzer(Benutzer):
         return super().pruefe_login(passwort)
 
     def get_info(self):
-        pass
+        return(
+            f"Typ: Gast-Benutzer\n"
+            f"Benutzername: {self.get_benutzername()}"
+            f"Ablauf-Tage: {self.__ablauf_tage}"
+        )
