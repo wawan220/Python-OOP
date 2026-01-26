@@ -80,7 +80,11 @@ class Gastbenutzer(Benutzer):
             print("Ablauf-Tage müssen größer 0 sein!")
 
     def pruefe_login(self,passwort:str):
-        pass
+        #Gast darf nur, wenn tage nicht abgelaufen!
+        if self.__ablauf_tage <=0:
+            return False
+        # dannach nur mit passwortprüfung wie bei Benutzer
+        return super().pruefe_login(passwort)
 
     def get_info(self):
         pass
