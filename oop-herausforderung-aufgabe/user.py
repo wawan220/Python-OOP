@@ -4,7 +4,8 @@
 class Benutzer:
     def __init__(self, benutzername:str,passwort:str):
         self.__benutzername=benutzername
-        self.__passwort=passwort
+        self.__passwort=""   #wird durch den setter gesetzt (Validierung)
+        self.set_passwort(passwort)
 
     def get_benutzername(self):
         return self.__benutzername
