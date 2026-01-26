@@ -40,13 +40,19 @@ class Benutzer:
 class Administrator(Benutzer):
     def __init__(self, benutzername:str, passwort:str, rechte_level:int):
         super().__init__(benutzername, passwort)
-        self.__rechte_level=rechte_level
+        self.__rechte_level= 1          #wird durch den setter gesetzt (Validierung)
+        self.set_rechte_level(rechte_level)
 
     def get_rechte_level(self):
-        pass
+        return self.__rechte_level
     
     def set_rechte_level(self, neues_level:int):
-        pass
+        if neues_level in (1,2,3,4,5):
+            self.__rechte_level=neues_level
+            print("Rechte-Level wurde gesetzt/geändert!")
+        else:
+            print("!!!Fehler!!!")
+            print("Rechte-Level muss zwischen 1 und 5 liegen!")
 
     def get_info(self):
         pass
